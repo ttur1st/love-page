@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛЮБЛЮ ТЕБЯ</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+        h1 {
+            font-size: 1.5em;
+            text-align: center;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+            line-height: 1.5;
+            margin: 0;
+            letter-spacing: 0.02em;
+            font-weight: bold;
+            padding: 0 15px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .sentence {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .sentence.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 1.3em;
+                padding: 0 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+            .container {
+                padding: 8px;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            h1 {
+                font-size: 1em;
+            }
+            .container {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="textContainer">
+        <h1>
+            <span class="sentence">Солнце, я тебя безумно люблю и всегда буду рядом с тобой.</span>
+            <span class="sentence">Ты очень много для меня сделала, и я покажу тебе ту любовь, которой ты достойна, ведь ты самое прекрасное, что только можно было найти в этом мрачном мире.</span>
+            <span class="sentence">Если Бог потратил 7 дней на создание мира, то видимо 6 из этих дней он потратил на такое прекрасное творение, как ты.</span>
+            <span class="sentence">Мне словами не передать, как сильно я тобой дорожу, солнышко, ты моё всё, ты моя гордость.</span>
+            <span class="sentence">Каждый раз, когда смотрю в твои прекрасные глазки, я в них просто утопаю, как в первый раз.</span>
+        </h1>
+    </div>
+
+    <script>
+        let sentences = document.querySelectorAll('.sentence');
+        let index = 0;
+
+        function showNextSentence() {
+            if (index < sentences.length) {
+                sentences[index].classList.add('show');
+                index++;
+            } else {
+                clearInterval(interval); // Остановим интервал после того, как все предложения показаны
+            }
+        }
+
+        // Показываем предложение каждые 5 секунд
+        let interval = setInterval(showNextSentence, 5000);
+
+        // Показываем первое предложение сразу
+        showNextSentence();
+    </script>
+</body>
+</html>
